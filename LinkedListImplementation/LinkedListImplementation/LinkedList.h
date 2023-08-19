@@ -17,6 +17,7 @@ public:
 	void deleteFirst();
 
 	bool insert(int index, int value);
+	void deleteNode(int index);
 	
 	
 	Node* getHead() const;
@@ -30,6 +31,8 @@ public:
 
 	void printList() const;
 	void printInfo() const;
+
+
 
 private:
 	Node* head;

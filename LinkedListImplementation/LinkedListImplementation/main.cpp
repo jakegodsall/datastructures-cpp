@@ -15,5 +15,9 @@ int main()
 
 	myLinkedList->printInfo();
 
+	myLinkedList->deleteNode(1);
+
+	myLinkedList->printInfo();
+
 	return 0;
 }

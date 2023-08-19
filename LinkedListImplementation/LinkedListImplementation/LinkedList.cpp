@@ -144,6 +144,33 @@ bool LinkedList::insert(int index, int value)
 	}
 }
 
+void LinkedList::deleteNode(int index)
+{
+	if ((index < 0) || index > (this->length - 1))
+	{
+		std::cerr << "Index is out of range." << std::endl;
+		return;
+	}
+	else if (index == 0)
+	{
+		return this->deleteFirst();
+	}
+	else if (index == this->length - 1)
+	{
+		return deleteLast();
+	}
+	else
+	{
+		Node* prevNode = this->get(index - 1);
+		Node* temp = prevNode->getNext();
+
+		prevNode->setNext(temp->getNext());
+		delete temp;
+		this->length--;
+		return;
+	}
+}
+
 
 Node* LinkedList::getHead() const
 {
