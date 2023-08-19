@@ -19,5 +19,10 @@ int main()
 
 	myLinkedList->printInfo();
 
+	myLinkedList->reverse();
+	
+
+	myLinkedList->printInfo();
+
 	return 0;
 }

@@ -255,3 +255,24 @@ void LinkedList::printInfo() const
 	std::cout << std::endl << std::endl;
 }
 
+void LinkedList::reverse()
+{
+	// switch the head and tail
+	Node* temp = this->head;
+	this->head = this->tail;
+	this->tail = temp;
+	
+	// get three elements in order
+	Node* before = nullptr;
+	// temp is in between
+	Node* after = temp->getNext();
+
+	for (int i = 0; i < this->length; i++)
+	{
+		after = temp->getNext();
+		temp->setNext(before);
+		before = temp;
+		temp = after;
+	}
+
+}

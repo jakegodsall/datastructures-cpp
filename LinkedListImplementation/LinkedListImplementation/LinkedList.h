@@ -32,7 +32,7 @@ public:
 	void printList() const;
 	void printInfo() const;
 
-
+	void reverse();
 
 private:
 	Node* head;
