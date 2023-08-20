@@ -34,6 +34,8 @@ public:
 
 	void reverse();
 
+	bool hasLoop() const;
+
 private:
 	Node* head;
 	Node* tail;

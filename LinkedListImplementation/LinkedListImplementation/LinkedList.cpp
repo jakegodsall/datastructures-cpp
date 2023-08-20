@@ -276,3 +276,23 @@ void LinkedList::reverse()
 	}
 
 }
+
+bool LinkedList::hasLoop() const
+{
+	Node* slow = this->getHead();
+	Node* fast = this->getHead();
+
+	while (slow != nullptr &&
+		fast != nullptr &&
+		fast->getNext() != nullptr)
+	{
+		slow = slow->getNext();
+		fast = fast->getNext()->getNext();
+		if (slow == fast)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
