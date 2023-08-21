@@ -296,3 +296,21 @@ bool LinkedList::hasLoop() const
 	return false;
 }
 
+Node* findKthFromEnd(int k)
+{
+	Node* ptr1 = this->head;
+	Node* ptr2 = this->head;
+
+	for (int i = 0; i < k; i++)
+	{
+		ptr2 = ptr2->getNext();
+	}
+
+	while (ptr2 != nullptr)
+	{
+		ptr1 = ptr1->getNext();
+		ptr2 = ptr2->getNext();
+	}
+
+	return ptr1;
+}

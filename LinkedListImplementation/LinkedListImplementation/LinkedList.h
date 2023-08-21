@@ -35,6 +35,7 @@ public:
 	void reverse();
 
 	bool hasLoop() const;
+	Node* findKthFromEnd(int k) const;
 
 private:
 	Node* head;
