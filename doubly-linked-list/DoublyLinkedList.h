@@ -9,10 +9,16 @@ class DoublyLinkedList
         DoublyLinkedList();
         DoublyLinkedList(int data);
 
+        Node* getHead() const;
+        Node* getTail() const;
+        int getLength() const;
+
+        void printList() const;
+
     private:
         Node* head;
         Node* tail;
-        Node* length;
+        int length;
 };
 
 #endif
