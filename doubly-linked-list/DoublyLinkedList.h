@@ -13,7 +13,10 @@ class DoublyLinkedList
         Node* getTail() const;
         int getLength() const;
 
+
+        void prepend(int value);
         void append(int value);
+        void deleteLast();
 
         void printList() const;
 
