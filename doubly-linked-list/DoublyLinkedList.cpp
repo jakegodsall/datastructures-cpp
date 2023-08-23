@@ -31,6 +31,24 @@ int DoublyLinkedList::getLength() const
     return this->length;
 }
 
+void DoublyLinkedList::append(int value)
+{
+    Node* newNode = new Node(value);
+
+    if (this->length == 0)
+    {
+        this->head = newNode;
+        this->tail = newNode;
+    }
+    else
+    {
+        this->tail->setNext(newNode);
+        newNode->setPrev(this->tail);
+        this->tail = newNode;
+    }
+    this->length++;
+}
+
 void DoublyLinkedList::printList() const
 {
     Node* temp = this->head;
