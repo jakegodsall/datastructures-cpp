@@ -36,8 +36,7 @@ void DoublyLinkedList::prepend(int value)
     Node* newNode = new Node(value);
     if (this->length == 0)
     {
-        append(value);
-        return;
+        return append(value);
     }
     else
     {
@@ -45,6 +44,23 @@ void DoublyLinkedList::prepend(int value)
         this->head->setPrev(newNode);
         this->head = newNode;
         this->length++;
+    }
+}
+
+void DoublyLinkedList::deleteFirst()
+{
+    if (this->length == 0) return;
+    if (this->length == 1)
+    {
+        return deleteLast();
+    }
+    else
+    {
+        Node* temp = this->head;
+        this->head = this->head->getNext();
+        this->head->setPrev(nullptr);
+        delete temp;
+        this->length--;
     }
 }
 
@@ -83,6 +99,37 @@ void DoublyLinkedList::deleteLast()
         delete temp;
     }
     this->length--;
+}
+
+Node* get(int index)
+{
+    if (index < 0 || index >= this->length)
+    {
+        std::cerr << "Index out of range."
+            << std::endl;
+        return nullptr;
+    }
+    else
+    {
+        Node* temp;
+        if (index < length / 2)
+        {
+            temp = this->head;
+            for (int i = 0; i < index; i++)
+            {
+                temp = temp->getNext();
+            }
+        }
+        else
+        {
+            temp = this->tail;
+            for (int i = this->length - 1; i > index; i--)
+            {
+                temp = temp->getPrev();
+            }
+        }
+
+    }
 }
 
 void DoublyLinkedList::printList() const

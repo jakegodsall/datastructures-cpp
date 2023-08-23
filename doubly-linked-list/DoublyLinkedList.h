@@ -13,10 +13,13 @@ class DoublyLinkedList
         Node* getTail() const;
         int getLength() const;
 
-
+        // deque operations
         void prepend(int value);
+        void deleteFirst();
         void append(int value);
         void deleteLast();
+
+        Node* get(int index);
 
         void printList() const;
 
