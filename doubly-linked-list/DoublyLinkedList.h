@@ -19,7 +19,8 @@ class DoublyLinkedList
         void append(int value);
         void deleteLast();
 
-        Node* get(int index);
+        Node* get(int index) const;
+        bool set(int index, int value);
 
         void printList() const;
 

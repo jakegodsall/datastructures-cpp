@@ -101,7 +101,7 @@ void DoublyLinkedList::deleteLast()
     this->length--;
 }
 
-Node* get(int index)
+Node* DoublyLinkedList::get(int index) const
 {
     if (index < 0 || index >= this->length)
     {
@@ -128,8 +128,20 @@ Node* get(int index)
                 temp = temp->getPrev();
             }
         }
-
+        return temp;
     }
+}
+
+bool DoublyLinkedList::set(int index, int value)
+{
+    // returns a valid pointer to a node or nullptr if out of range.
+    Node* temp = get(index);
+    if (temp != nullptr)
+    {
+        temp->setData(value);
+        return true;
+    }
+    return false;
 }
 
 void DoublyLinkedList::printList() const
