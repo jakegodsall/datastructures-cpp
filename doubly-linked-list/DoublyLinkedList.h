@@ -22,6 +22,7 @@ class DoublyLinkedList
         Node* get(int index) const;
         bool set(int index, int value);
         bool insert(int index, int value);
+        bool deleteNode(int index);
 
         void printList() const;
 

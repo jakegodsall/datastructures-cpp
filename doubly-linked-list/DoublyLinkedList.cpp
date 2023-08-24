@@ -174,7 +174,36 @@ bool DoublyLinkedList::insert(int index, int value)
     afterNode->setPrev(newNode);
     this->length++;
     return true;
+}
 
+bool DoublyLinkedList::deleteNode(int index)
+{
+    if (index < 0 || index >= this->length)
+    {
+        std::cerr << "Index out of range." << std::endl;
+        return false;
+    }
+    if (index == 0)
+    {
+        deleteFirst();
+        return true;
+    }
+    if (index == this->length - 1)
+    {
+        deleteLast();
+        return true;
+    }
+    else
+    {
+        Node* prevNode = get(index - 1);
+        Node* temp = prevNode->getNext();
+        Node* nextNode = temp->getNext();
+        prevNode->setNext(nextNode);
+        nextNode->setPrev(prevNode);
+        delete temp;
+        this->length--;
+        return true;
+    }
 }
 
 void DoublyLinkedList::printList() const
