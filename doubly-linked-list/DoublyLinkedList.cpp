@@ -144,6 +144,39 @@ bool DoublyLinkedList::set(int index, int value)
     return false;
 }
 
+bool DoublyLinkedList::insert(int index, int value)
+{
+    if (index < 0 || index >= this->length)
+    {
+        std::cerr << "Index out of range" << std::endl;
+        return false;
+    }
+
+    if (index == 0)
+    {
+        prepend(value);
+        return true;
+    }
+
+    if (index == length - 1)
+    {
+        append(value);
+        return true;
+    }
+
+    Node* previousNode = get(index - 1);
+    Node* afterNode = previousNode->getNext();
+    Node* newNode = new Node(value);
+
+    newNode->setPrev(previousNode);
+    newNode->setNext(afterNode);
+    previousNode->setNext(newNode);
+    afterNode->setPrev(newNode);
+    this->length++;
+    return true;
+
+}
+
 void DoublyLinkedList::printList() const
 {
     Node* temp = this->head;
