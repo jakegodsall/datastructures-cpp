@@ -215,3 +215,21 @@ void DoublyLinkedList::printList() const
         temp = temp->getNext();
     }
 }
+
+bool DoublyLinkedList::isPalindrome() const
+{
+    Node* p1 = this->head;
+    Node* p2 = this->tail;
+
+    for (int i = 0; i < this->length; i++)
+    {
+        if (p1->getData() != p2->getData())
+        {
+            return false;
+        }
+
+        p1 = p1->getNext();
+        p2 = p2->getPrev();
+    }
+    return true;
+}

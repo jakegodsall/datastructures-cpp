@@ -25,6 +25,7 @@ class DoublyLinkedList
         bool deleteNode(int index);
 
         void printList() const;
+        bool isPalindrome() const;
 
     private:
         Node* head;
