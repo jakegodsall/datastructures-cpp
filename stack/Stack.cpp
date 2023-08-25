@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Stack.h"
 
 Stack::Stack()
@@ -31,4 +32,23 @@ void Stack::setTop(StackNode* stackNode)
 void Stack::setHeight(int height)
 {
     this->height = height;
+}
+
+void Stack::printStack() const
+{
+    StackNode* temp = this->top;
+    std::cout << "Stack:" << std::endl;
+    while (temp != nullptr)
+    {
+        std::cout << temp->getValue() << std::endl;
+        temp = temp->getNext();
+    }
+}
+
+void Stack::push(int value)
+{
+    StackNode* newNode = new StackNode(value);
+    newNode->setNext(this->top);
+    this->top = newNode;
+    this->height++;
 }

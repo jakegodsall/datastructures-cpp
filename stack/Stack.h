@@ -11,9 +11,12 @@ public:
 
     StackNode* getTop() const;
     int getHeight() const;
-
     void setTop(StackNode* stackNode);
     void setHeight(int height);
+
+    void push(int value);
+
+    void printStack() const;
 
 private:
     StackNode* top;
