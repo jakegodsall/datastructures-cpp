@@ -60,3 +60,19 @@ void Stack::push(int value)
     this->top = newNode; // Set the top pointer to point to the new node.
     this->height++; // Increase the height of the stack by 1.
 }
+
+// Removes and returns the value stored in the top of the stack.
+int Stack::pop()
+{
+    if (this->height == 0) // If the stack is empty.
+    {
+        return INT_MIN; // Return value unlikely to be present.
+    }
+    StackNode* temp = this->top; // Create a reference to the top node.
+    int poppedValue = top->getValue(); // Get the value from the ref.
+    this->top = this->top->getNext(); // Point top to the next node in the stack.
+    delete temp; // Delete the previous top node.
+    this->height--; // Decrement the height.
+
+    return poppedValue; // Return the popped value.
+}

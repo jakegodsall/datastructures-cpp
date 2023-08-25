@@ -15,6 +15,7 @@ public:
     void setHeight(int height);
 
     void push(int value);
+    int pop();
 
     void printStack() const;
 
