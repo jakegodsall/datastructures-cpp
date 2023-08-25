@@ -1,6 +1,7 @@
 #include <iostream>
 #include "DoublyLinkedList.h"
 
+// Default constructor: Initializes an empty list.
 DoublyLinkedList::DoublyLinkedList()
 {
     this->head = nullptr;
@@ -8,6 +9,7 @@ DoublyLinkedList::DoublyLinkedList()
     this->length = 0;
 }
 
+// Constructor: Initializes the list with a single node.
 DoublyLinkedList::DoublyLinkedList(int value)
 {
     DoubleNode* newNode = new DoubleNode(value);
@@ -16,21 +18,25 @@ DoublyLinkedList::DoublyLinkedList(int value)
     this->length = 1;
 }
 
+// Returns the head node of the list.
 DoubleNode* DoublyLinkedList::getHead() const
 {
     return this->head;
 }
 
+// Returns the tail node of the list.
 DoubleNode* DoublyLinkedList::getTail() const
 {
     return this->tail;
 }
 
+// Returns the length (number of nodes) of the list.
 int DoublyLinkedList::getLength() const
 {
     return this->length;
 }
 
+// Adds a new node to the front of the list.
 void DoublyLinkedList::prepend(int value)
 {
     DoubleNode* newNode = new DoubleNode(value);
@@ -47,6 +53,7 @@ void DoublyLinkedList::prepend(int value)
     }
 }
 
+// Deletes the first node of the list.
 void DoublyLinkedList::deleteFirst()
 {
     if (this->length == 0) return;
@@ -64,6 +71,7 @@ void DoublyLinkedList::deleteFirst()
     }
 }
 
+// Adds a new node to the end of the list.
 void DoublyLinkedList::append(int value)
 {
     DoubleNode* newNode = new DoubleNode(value);
@@ -82,6 +90,7 @@ void DoublyLinkedList::append(int value)
     this->length++;
 }
 
+// Deletes the last node of the list.
 void DoublyLinkedList::deleteLast()
 {
     if (this->length == 0) return;
@@ -101,6 +110,7 @@ void DoublyLinkedList::deleteLast()
     this->length--;
 }
 
+// Returns the node at the given index.
 DoubleNode* DoublyLinkedList::get(int index) const
 {
     if (index < 0 || index >= this->length)
@@ -132,6 +142,7 @@ DoubleNode* DoublyLinkedList::get(int index) const
     }
 }
 
+// Sets the data of the node at the given index.
 bool DoublyLinkedList::set(int index, int value)
 {
     // returns a valid pointer to a node or nullptr if out of range.
@@ -144,6 +155,7 @@ bool DoublyLinkedList::set(int index, int value)
     return false;
 }
 
+// Inserts a node with the given value at the specified index.
 bool DoublyLinkedList::insert(int index, int value)
 {
     if (index < 0 || index >= this->length)
@@ -176,6 +188,7 @@ bool DoublyLinkedList::insert(int index, int value)
     return true;
 }
 
+// Deletes the node at the given index.
 bool DoublyLinkedList::deleteNode(int index)
 {
     if (index < 0 || index >= this->length)
@@ -206,6 +219,7 @@ bool DoublyLinkedList::deleteNode(int index)
     }
 }
 
+// Prints the list from head to tail.
 void DoublyLinkedList::printList() const
 {
     DoubleNode* temp = this->head;
@@ -216,6 +230,7 @@ void DoublyLinkedList::printList() const
     }
 }
 
+// Checks if the list is a palindrome.
 bool DoublyLinkedList::isPalindrome() const
 {
     DoubleNode* p1 = this->head;
