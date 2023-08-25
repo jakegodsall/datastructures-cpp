@@ -1,7 +1,7 @@
 #ifndef DOUBLY_LINKED_LIST_H
 #define DOUBLY_LINKED_LIST_H
 
-#include "Node.h"
+#include "DoubleNode.h"
 
 class DoublyLinkedList
 {
@@ -9,8 +9,8 @@ class DoublyLinkedList
         DoublyLinkedList();
         DoublyLinkedList(int data);
 
-        Node* getHead() const;
-        Node* getTail() const;
+        DoubleNode* getHead() const;
+        DoubleNode* getTail() const;
         int getLength() const;
 
         // deque operations
@@ -19,7 +19,7 @@ class DoublyLinkedList
         void append(int value);
         void deleteLast();
 
-        Node* get(int index) const;
+        DoubleNode* get(int index) const;
         bool set(int index, int value);
         bool insert(int index, int value);
         bool deleteNode(int index);
@@ -28,8 +28,8 @@ class DoublyLinkedList
         bool isPalindrome() const;
 
     private:
-        Node* head;
-        Node* tail;
+        DoubleNode* head;
+        DoubleNode* tail;
         int length;
 };
 

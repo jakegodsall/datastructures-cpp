@@ -10,18 +10,18 @@ DoublyLinkedList::DoublyLinkedList()
 
 DoublyLinkedList::DoublyLinkedList(int value)
 {
-    Node* newNode = new Node(value);
+    DoubleNode* newNode = new DoubleNode(value);
     this->head = newNode;
     this->tail = newNode;
     this->length = 1;
 }
 
-Node* DoublyLinkedList::getHead() const
+DoubleNode* DoublyLinkedList::getHead() const
 {
     return this->head;
 }
 
-Node* DoublyLinkedList::getTail() const
+DoubleNode* DoublyLinkedList::getTail() const
 {
     return this->tail;
 }
@@ -33,7 +33,7 @@ int DoublyLinkedList::getLength() const
 
 void DoublyLinkedList::prepend(int value)
 {
-    Node* newNode = new Node(value);
+    DoubleNode* newNode = new DoubleNode(value);
     if (this->length == 0)
     {
         return append(value);
@@ -56,7 +56,7 @@ void DoublyLinkedList::deleteFirst()
     }
     else
     {
-        Node* temp = this->head;
+        DoubleNode* temp = this->head;
         this->head = this->head->getNext();
         this->head->setPrev(nullptr);
         delete temp;
@@ -66,7 +66,7 @@ void DoublyLinkedList::deleteFirst()
 
 void DoublyLinkedList::append(int value)
 {
-    Node* newNode = new Node(value);
+    DoubleNode* newNode = new DoubleNode(value);
 
     if (this->length == 0)
     {
@@ -93,7 +93,7 @@ void DoublyLinkedList::deleteLast()
     }
     else
     {
-        Node* temp = this->tail;
+        DoubleNode* temp = this->tail;
         this->tail = this->tail->getPrev();
         this->tail->setNext(nullptr);
         delete temp;
@@ -101,7 +101,7 @@ void DoublyLinkedList::deleteLast()
     this->length--;
 }
 
-Node* DoublyLinkedList::get(int index) const
+DoubleNode* DoublyLinkedList::get(int index) const
 {
     if (index < 0 || index >= this->length)
     {
@@ -111,7 +111,7 @@ Node* DoublyLinkedList::get(int index) const
     }
     else
     {
-        Node* temp;
+        DoubleNode* temp;
         if (index < length / 2)
         {
             temp = this->head;
@@ -135,7 +135,7 @@ Node* DoublyLinkedList::get(int index) const
 bool DoublyLinkedList::set(int index, int value)
 {
     // returns a valid pointer to a node or nullptr if out of range.
-    Node* temp = get(index);
+    DoubleNode* temp = get(index);
     if (temp != nullptr)
     {
         temp->setData(value);
@@ -164,9 +164,9 @@ bool DoublyLinkedList::insert(int index, int value)
         return true;
     }
 
-    Node* previousNode = get(index - 1);
-    Node* afterNode = previousNode->getNext();
-    Node* newNode = new Node(value);
+    DoubleNode* previousNode = get(index - 1);
+    DoubleNode* afterNode = previousNode->getNext();
+    DoubleNode* newNode = new DoubleNode(value);
 
     newNode->setPrev(previousNode);
     newNode->setNext(afterNode);
@@ -195,9 +195,9 @@ bool DoublyLinkedList::deleteNode(int index)
     }
     else
     {
-        Node* prevNode = get(index - 1);
-        Node* temp = prevNode->getNext();
-        Node* nextNode = temp->getNext();
+        DoubleNode* prevNode = get(index - 1);
+        DoubleNode* temp = prevNode->getNext();
+        DoubleNode* nextNode = temp->getNext();
         prevNode->setNext(nextNode);
         nextNode->setPrev(prevNode);
         delete temp;
@@ -208,7 +208,7 @@ bool DoublyLinkedList::deleteNode(int index)
 
 void DoublyLinkedList::printList() const
 {
-    Node* temp = this->head;
+    DoubleNode* temp = this->head;
     while (temp != nullptr)
     {
         std::cout << temp->getData() << std::endl;
@@ -218,8 +218,8 @@ void DoublyLinkedList::printList() const
 
 bool DoublyLinkedList::isPalindrome() const
 {
-    Node* p1 = this->head;
-    Node* p2 = this->tail;
+    DoubleNode* p1 = this->head;
+    DoubleNode* p2 = this->tail;
 
     for (int i = 0; i < this->length; i++)
     {

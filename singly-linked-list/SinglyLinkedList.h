@@ -1,14 +1,14 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef SINGLY_LINKED_LIST_H
+#define SINGLY_LINKED_LIST_H
 
-#include "Node.h"
+#include "SingleNode.h"
 
-class LinkedList
+class SinglyLinkedList
 {
 public:
-	LinkedList();
-	LinkedList(int value);
-	~LinkedList();
+	SinglyLinkedList();
+	SinglyLinkedList(int value);
+	~SinglyLinkedList();
 
 	void append(int value);
 	void deleteLast();
@@ -20,9 +20,9 @@ public:
 	void deleteNode(int index);
 	
 	
-	Node* getHead() const;
-	Node* getTail() const;
-	Node* get(int index) const;
+	SingleNode* getHead() const;
+	SingleNode* getTail() const;
+	SingleNode* get(int index) const;
 	bool set(int index, int value);
 	
 	int getLength() const;
@@ -35,11 +35,11 @@ public:
 	void reverse();
 
 	bool hasLoop() const;
-	Node* findKthFromEnd(int k) const;
+	SingleNode* findKthFromEnd(int k) const;
 
 private:
-	Node* head;
-	Node* tail;
+	SingleNode* head;
+	SingleNode* tail;
 	int length;
 };
 

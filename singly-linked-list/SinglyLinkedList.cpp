@@ -1,24 +1,24 @@
 #include <iostream>
-#include "LinkedList.h"
+#include "SinglyLinkedList.h"
 
-LinkedList::LinkedList()
+SinglyLinkedList::SinglyLinkedList()
 {
 	this->head = nullptr;
 	this->tail = nullptr;
 	this->length = 0;
 }
 
-LinkedList::LinkedList(int value)
+SinglyLinkedList::SinglyLinkedList(int value)
 {
-	Node* newNode = new Node(value);
+	SingleNode* newNode = new SingleNode(value);
 	this->head = newNode;
 	this->tail = newNode;
 	this->length = 1;
 }
 
-LinkedList::~LinkedList()
+SinglyLinkedList::~SinglyLinkedList()
 {
-	Node* temp = head;
+	SingleNode* temp = head;
 
 	while (head != nullptr)
 	{
@@ -28,9 +28,9 @@ LinkedList::~LinkedList()
 	}
 }
 
-void LinkedList::append(int value)
+void SinglyLinkedList::append(int value)
 {
-	Node* newNode = new Node(value);
+	SingleNode* newNode = new SingleNode(value);
 
 	if (this->length == 0)
 	{
@@ -46,7 +46,7 @@ void LinkedList::append(int value)
 	this->length++;
 }
 
-void LinkedList::deleteLast()
+void SinglyLinkedList::deleteLast()
 {
 	if (this->length == 0)
 	{
@@ -62,7 +62,7 @@ void LinkedList::deleteLast()
 	else
 	{
 		int counter = 0;
-		Node* temp = this->head;
+		SingleNode* temp = this->head;
 
 		while (counter < this->length - 2)
 		{
@@ -76,9 +76,9 @@ void LinkedList::deleteLast()
 	}
 }
 
-void LinkedList::prepend(int value)
+void SinglyLinkedList::prepend(int value)
 {
-	Node* newNode = new Node(value);
+	SingleNode* newNode = new SingleNode(value);
 
 	if (this->length == 0)
 	{
@@ -94,7 +94,7 @@ void LinkedList::prepend(int value)
 	this->length++;
 }
 
-void LinkedList::deleteFirst()
+void SinglyLinkedList::deleteFirst()
 {
 	if (length == 0)
 	{
@@ -109,7 +109,7 @@ void LinkedList::deleteFirst()
 	}
 	else
 	{
-		Node* temp = this->head;
+		SingleNode* temp = this->head;
 		this->head = this->head->getNext();
 		delete temp;
 		this->length--;
@@ -117,7 +117,7 @@ void LinkedList::deleteFirst()
 }
 
 
-bool LinkedList::insert(int index, int value)
+bool SinglyLinkedList::insert(int index, int value)
 {
 	if ((index < 0) || index > (this->length - 1))
 	{
@@ -127,15 +127,17 @@ bool LinkedList::insert(int index, int value)
 	else if (this->length == 0)
 	{
 		this->prepend(value);
+        return true;
 	}
 	else if (this->length == index)
 	{
 		this->append(value);
+        return true;
 	}
 	else
 	{
-		Node* newNode = new Node(value);
-		Node* temp = this->get(index - 1);
+		SingleNode* newNode = new SingleNode(value);
+		SingleNode* temp = this->get(index - 1);
 		newNode->setNext(temp->getNext());
 		temp->setNext(newNode);
 		this->length++;
@@ -144,7 +146,7 @@ bool LinkedList::insert(int index, int value)
 	}
 }
 
-void LinkedList::deleteNode(int index)
+void SinglyLinkedList::deleteNode(int index)
 {
 	if ((index < 0) || index > (this->length - 1))
 	{
@@ -161,8 +163,8 @@ void LinkedList::deleteNode(int index)
 	}
 	else
 	{
-		Node* prevNode = this->get(index - 1);
-		Node* temp = prevNode->getNext();
+		SingleNode* prevNode = this->get(index - 1);
+		SingleNode* temp = prevNode->getNext();
 
 		prevNode->setNext(temp->getNext());
 		delete temp;
@@ -172,17 +174,17 @@ void LinkedList::deleteNode(int index)
 }
 
 
-Node* LinkedList::getHead() const
+SingleNode* SinglyLinkedList::getHead() const
 {
 	return this->head;
 }
 
-Node* LinkedList::getTail() const
+SingleNode* SinglyLinkedList::getTail() const
 {
 	return this->tail;
 }
 
-Node* LinkedList::get(int index) const
+SingleNode* SinglyLinkedList::get(int index) const
 {
 	if ((index < 0) || (index > (this->length - 1)))
 	{
@@ -195,7 +197,7 @@ Node* LinkedList::get(int index) const
 	}
 	else
 	{
-		Node* temp = this->head;
+		SingleNode* temp = this->head;
 		for (int i = 0; i < index; i++)
 		{
 			temp = temp->getNext();
@@ -204,11 +206,11 @@ Node* LinkedList::get(int index) const
 	}
 }
 
-bool LinkedList::set(int index, int value)
+bool SinglyLinkedList::set(int index, int value)
 {
-	Node* temp = this->head;
+	SingleNode* temp = this->head;
 
-	// get the appropriate Node
+	// get the appropriate SingleNode
 	if ((index < 0) || (index > (this->length - 1)))
 	{
 		std::cerr << "Index is out of range." << std::endl;
@@ -225,14 +227,14 @@ bool LinkedList::set(int index, int value)
 	return true;
 }
 
-int LinkedList::getLength() const
+int SinglyLinkedList::getLength() const
 {
 	return this->length;
 }
 
-void LinkedList::printList() const
+void SinglyLinkedList::printList() const
 {
-	Node* currentNode = head;
+	SingleNode* currentNode = head;
 	while (currentNode != nullptr)
 	{
 		std::cout << currentNode->getData() << std::endl;
@@ -240,7 +242,7 @@ void LinkedList::printList() const
 	}
 }
 
-void LinkedList::printInfo() const
+void SinglyLinkedList::printInfo() const
 {
 	std::cout << "Singly Linked List" << std::endl;
 	std::cout << "Head: " << this->getHead()->getData() << std::endl;
@@ -255,17 +257,17 @@ void LinkedList::printInfo() const
 	std::cout << std::endl << std::endl;
 }
 
-void LinkedList::reverse()
+void SinglyLinkedList::reverse()
 {
 	// switch the head and tail
-	Node* temp = this->head;
+	SingleNode* temp = this->head;
 	this->head = this->tail;
 	this->tail = temp;
 	
 	// get three elements in order
-	Node* before = nullptr;
+	SingleNode* before = nullptr;
 	// temp is in between
-	Node* after = temp->getNext();
+	SingleNode* after = temp->getNext();
 
 	for (int i = 0; i < this->length; i++)
 	{
@@ -277,10 +279,10 @@ void LinkedList::reverse()
 
 }
 
-bool LinkedList::hasLoop() const
+bool SinglyLinkedList::hasLoop() const
 {
-	Node* slow = this->getHead();
-	Node* fast = this->getHead();
+	SingleNode* slow = this->getHead();
+	SingleNode* fast = this->getHead();
 
 	while (slow != nullptr &&
 		fast != nullptr &&
@@ -296,10 +298,10 @@ bool LinkedList::hasLoop() const
 	return false;
 }
 
-Node* findKthFromEnd(int k)
+SingleNode* SinglyLinkedList::findKthFromEnd(int k) const
 {
-	Node* ptr1 = this->head;
-	Node* ptr2 = this->head;
+	SingleNode* ptr1 = this->head;
+	SingleNode* ptr2 = this->head;
 
 	for (int i = 0; i < k; i++)
 	{
