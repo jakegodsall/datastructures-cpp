@@ -19,4 +19,6 @@ add_executable(DataStructuresApp main.cpp
                ./doubly-linked-list/DoublyLinkedList.cpp
                ./doubly-linked-list/DoubleNode.cpp
                ./stack/Stack.cpp
-               ./stack/StackNode.cpp)
+               ./stack/StackNode.cpp
+               ./queue/Queue.h
+               ./queue/QueueNode.cpp)
