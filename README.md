@@ -15,7 +15,8 @@ At present, the implemented data structures are:
 
 * Singly Linked List
 * Doubly Linked List
-* Stack (built on a SLL).
+* Stack (built on a SLL)
+* Queue (built on a SLL)
 
 ## Getting Started
 Clone the Repository:
@@ -36,3 +37,17 @@ If you have any feedback, questions, or want to engage in a discussion about any
 
 ## License
 This project is open-source and available to everyone. Please reference this repository if you use any parts of it in your projects.
+
+## Comments
+
+You will notice that the code in this repository does not abide by all the rules of good software development. Most visibly, I have not followed the DRY principle (dont't repeat yourself).
+
+This is for good reason. I have purposely repeated some definitions, for example singly linked list nodes for implementing a stack or a queue, in order to practice as much as possible writing such implementations.
+
+This repository is, afterall, primarily for learning purposes.
+
+## Acknowledgements
+I owe a great deal of gratitude to [Scott Barrett](https://scottbarrett.com/) for the fantastic course on Udemy, [C++ Data Structures & Algorithms + LEETCODE Exercises](https://www.udemy.com/course/data-structures-algorithms-cpp/).
+This is where the majority of my learning has taken place regarding the implementation of the data structures.
+
+For the majority of methods applied on these data structures, they are my personal solutions to DSA problems from [Leetcode](https://leetcode.com/), adapted for the specific implementations defined in this repository.
