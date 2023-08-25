@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SinglyLinkedList.h"
 
+// Default constructor: initializes an empty list.
 SinglyLinkedList::SinglyLinkedList()
 {
 	this->head = nullptr;
@@ -8,6 +9,7 @@ SinglyLinkedList::SinglyLinkedList()
 	this->length = 0;
 }
 
+// Constructor that initializes the list with a single node containing the provided value.
 SinglyLinkedList::SinglyLinkedList(int value)
 {
 	SingleNode* newNode = new SingleNode(value);
@@ -16,6 +18,7 @@ SinglyLinkedList::SinglyLinkedList(int value)
 	this->length = 1;
 }
 
+// Destructor: releases all the memory occupied by the list.
 SinglyLinkedList::~SinglyLinkedList()
 {
 	SingleNode* temp = head;
@@ -28,6 +31,7 @@ SinglyLinkedList::~SinglyLinkedList()
 	}
 }
 
+// Adds a new node with the given value to the end of the list.
 void SinglyLinkedList::append(int value)
 {
 	SingleNode* newNode = new SingleNode(value);
@@ -46,6 +50,7 @@ void SinglyLinkedList::append(int value)
 	this->length++;
 }
 
+// Removes the last node from the list.
 void SinglyLinkedList::deleteLast()
 {
 	if (this->length == 0)
@@ -76,6 +81,7 @@ void SinglyLinkedList::deleteLast()
 	}
 }
 
+// Adds a new node with the given value to the start of the list.
 void SinglyLinkedList::prepend(int value)
 {
 	SingleNode* newNode = new SingleNode(value);
@@ -94,6 +100,7 @@ void SinglyLinkedList::prepend(int value)
 	this->length++;
 }
 
+// Removes the first node from the list.
 void SinglyLinkedList::deleteFirst()
 {
 	if (length == 0)
@@ -116,7 +123,7 @@ void SinglyLinkedList::deleteFirst()
 	}
 }
 
-
+// Inserts a new node with the given value at the specified index position.
 bool SinglyLinkedList::insert(int index, int value)
 {
 	if ((index < 0) || index > (this->length - 1))
@@ -146,6 +153,7 @@ bool SinglyLinkedList::insert(int index, int value)
 	}
 }
 
+// Deletes the node at the specified index position.
 void SinglyLinkedList::deleteNode(int index)
 {
 	if ((index < 0) || index > (this->length - 1))
@@ -173,17 +181,19 @@ void SinglyLinkedList::deleteNode(int index)
 	}
 }
 
-
+// Returns the head node of the list.
 SingleNode* SinglyLinkedList::getHead() const
 {
 	return this->head;
 }
 
+// Returns the tail node of the list.
 SingleNode* SinglyLinkedList::getTail() const
 {
 	return this->tail;
 }
 
+// Retrieves the node at the specified index.
 SingleNode* SinglyLinkedList::get(int index) const
 {
 	if ((index < 0) || (index > (this->length - 1)))
@@ -206,6 +216,7 @@ SingleNode* SinglyLinkedList::get(int index) const
 	}
 }
 
+// Updates the value of the node at the specified index.
 bool SinglyLinkedList::set(int index, int value)
 {
 	SingleNode* temp = this->head;
@@ -227,11 +238,13 @@ bool SinglyLinkedList::set(int index, int value)
 	return true;
 }
 
+// Returns the total number of nodes in the list.
 int SinglyLinkedList::getLength() const
 {
 	return this->length;
 }
 
+// Prints all the node values in the list.
 void SinglyLinkedList::printList() const
 {
 	SingleNode* currentNode = head;
@@ -242,6 +255,7 @@ void SinglyLinkedList::printList() const
 	}
 }
 
+// Prints info about the list, like head, tail, and the entire list content.
 void SinglyLinkedList::printInfo() const
 {
 	std::cout << "Singly Linked List" << std::endl;
@@ -257,6 +271,7 @@ void SinglyLinkedList::printInfo() const
 	std::cout << std::endl << std::endl;
 }
 
+// Reverses the order of nodes in the list.
 void SinglyLinkedList::reverse()
 {
 	// switch the head and tail
@@ -279,6 +294,7 @@ void SinglyLinkedList::reverse()
 
 }
 
+// Checks if the list has a cycle.
 bool SinglyLinkedList::hasLoop() const
 {
 	SingleNode* slow = this->getHead();
@@ -298,6 +314,7 @@ bool SinglyLinkedList::hasLoop() const
 	return false;
 }
 
+// Returns the kth node from the end of the list.
 SingleNode* SinglyLinkedList::findKthFromEnd(int k) const
 {
 	SingleNode* ptr1 = this->head;
