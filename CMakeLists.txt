@@ -10,10 +10,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Include directories for the header files
 include_directories(${CMAKE_SOURCE_DIR}/singly-linked-list)
 include_directories(${CMAKE_SOURCE_DIR}/doubly-linked-list)
+include_directories(${CMAKE_SOURCE_DIR}/stack)
 
 # Create an executable
 add_executable(DataStructuresApp main.cpp
                ./singly-linked-list/SinglyLinkedList.cpp
                ./singly-linked-list/SingleNode.cpp
                ./doubly-linked-list/DoublyLinkedList.cpp
-               ./doubly-linked-list/DoubleNode.cpp)
+               ./doubly-linked-list/DoubleNode.cpp
+               ./stack/Stack.h)
